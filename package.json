@@ -22,18 +22,22 @@
     "eslint-config-next": "14.0.3",
     "next": "^14.1.0",
     "postcss": "8.4.31",
+    "query-string": "^8.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.50.1",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
     "stripe": "^14.13.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss": "3.3.5",
     "typescript": "5.2.2",
+    "uniqid": "^5.4.0",
     "use-player": "^0.2.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@types/uniqid": "^5.3.4",
     "supabase": "^1.131.5",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
