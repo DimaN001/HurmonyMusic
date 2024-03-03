@@ -1,12 +1,10 @@
-"use client";
-
 import uniqid from "uniqid";
 import React, { useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-
+import * as transliteration from 'transliteration';
 import useUploadModal from '@/hooks/useUploadModal';
 import { useUser } from "@/hooks/useUser";
 
@@ -50,12 +48,16 @@ const UploadModal = () => {
       const songFile = values.song?.[0];
 
       if (!imageFile || !songFile || !user) {
-        toast.error('Відсутні поля')
+        console.log("imageFile:", imageFile);
+        console.log("songFile:", songFile);
+        console.log("user:", user);
+        
+        toast.error('Відсутні поля');
         return;
       }
 
       const uniqueID = uniqid();
-
+      const transliteratedTitle = transliteration.slugify(values.title, { separator: '-' });
       // Upload song
       const { 
         data: songData, 
@@ -63,7 +65,7 @@ const UploadModal = () => {
       } = await supabaseClient
         .storage
         .from('songs')
-        .upload(`song-${values.title}-${uniqueID}`, songFile, {
+        .upload(`song-${transliteratedTitle}-${uniqueID}`, songFile, {
           cacheControl: '3600',
           upsert: false
         });
@@ -80,7 +82,7 @@ const UploadModal = () => {
       } = await supabaseClient
         .storage
         .from('images')
-        .upload(`image-${values.title}-${uniqueID}`, imageFile, {
+        .upload(`image-${transliteratedTitle}-${uniqueID}`, imageFile, {
           cacheControl: '3600',
           upsert: false
         });
@@ -90,7 +92,6 @@ const UploadModal = () => {
         return toast.error('Помилка завантаження зображення');
       }
 
-      
       // Create record 
       const { error: supabaseError } = await supabaseClient
         .from('songs')
@@ -111,7 +112,7 @@ const UploadModal = () => {
       toast.success('Пісня створена!');
       reset();
       uploadModal.onClose();
-    } catch (error) {
+    }  catch (error) {
       toast.error('Щось пішло не так');
     } finally {
       setIsLoading(false);

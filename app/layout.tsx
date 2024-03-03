@@ -25,9 +25,12 @@ export default async function RootLayout({
 }) {
   const userSongs = await getSongsByUserId();
 
+  
+  
   return (
-      <html lang="uk">
-      <body className={font.className}>
+      <html lang="uk" >
+      <link rel="icon" href="images/LOGO.jpg" />
+      <body className={font.className} >
         <ToasterProvider/>
         <SupabaseProvider>
           <UserProvider>
