@@ -1,4 +1,4 @@
-// Українська локалізація
+// Українська локалізація форм
 const AuthModalLocalization = {
     sign_up: {
       email_label: 'Електронна адреса',
@@ -20,14 +20,18 @@ const AuthModalLocalization = {
       loading_button_label: 'Вхід...',
       social_provider_text: 'Увійти через {{provider}}',
       link_text: 'Вже маєте обліковий запис? Увійдіть',
-      invalid_credentials: 'Невірні облікові дані для входу'
+      message: 'Невірні облікові дані для входу',
+      status: 400,
+      errorCode: 1  
+      
     },
     magic_link: {
       email_input_label: 'Електронна адреса',
       email_input_placeholder: 'Ваша електронна адреса',
-      button_label: 'Надіслати магічне посилання',
-      loading_button_label: 'Надсилання магічного посилання...',
-      link_text: 'Надіслати магічне посилання електронною поштою',
+      button_label: 'Надіслати посилання на пошту',
+      loading_button_label: 'Надсилання посилання на пошту...',
+      link_text: 'Вхід за допомогою електронної пошти',
+      confirmation_text: "Перевірте свою електронну пошту для підтвердження "
     },
     forgotten_password: {
       email_label: 'Електронна адреса',
@@ -44,4 +48,5 @@ const AuthModalLocalization = {
       loading_button_label: 'Оновлення пароля...',
     },
   };
+  
   export default AuthModalLocalization;
