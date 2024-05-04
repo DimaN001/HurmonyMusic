@@ -20,7 +20,7 @@ const AuthModalLocalization = {
       loading_button_label: 'Вхід...',
       social_provider_text: 'Увійти через {{provider}}',
       link_text: 'Вже маєте обліковий запис? Увійдіть',
-      message: 'Невірні облікові дані для входу',
+      confirmation_text: 'Невірні облікові дані для входу',
       status: 400,
       errorCode: 1  
       
@@ -40,6 +40,7 @@ const AuthModalLocalization = {
       button_label: 'Надіслати інструкції для скидання пароля',
       loading_button_label: 'Надсилання інструкцій...',
       link_text: 'Забули пароль?',
+      confirmation_text: "Перевірте свою електронну пошту, щоб знайти посилання для зміни пароля"
     },
     update_password: {
       password_label: 'Новий пароль',
